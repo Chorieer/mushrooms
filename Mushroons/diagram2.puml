@@ -1,0 +1,73 @@
+@startuml
+
+class HTMLDocument
+class HTMLElement
+class HTMLImageElement
+class Date
+
+class FileReader {
+  +onload(): void
+  +readAsDataURL(files: object[]): void
+}
+
+class tf {
+  +min: object
+}
+
+class tmImage {
+  +load(modelURL: string, metadataURL: string): Promise<object>
+  +predict(imageElement: object): Promise<object[]>
+}
+
+class $ {
+  +get(elementId: string): object
+}
+
+class Bootstrap {
+  +min: object
+}
+
+class popper {
+  +min: object
+}
+
+class mushrooms {
+  +min: object
+}
+
+class index {
+  +min: object
+}
+
+HTMLDocument --> HTMLElement
+HTMLDocument --> FileReader
+HTMLDocument --> $
+HTMLDocument --> Date
+
+HTMLElement --> HTMLImageElement
+HTMLElement --> FileReader
+HTMLElement --> $
+HTMLElement --> tf
+HTMLElement --> tmImage
+HTMLElement --> mushrooms
+HTMLElement --> index
+
+HTMLImageElement --> FileReader
+HTMLImageElement --> tmImage
+
+FileReader --> tmImage
+
+$ --> HTMLElement
+$ --> FileReader
+
+tf --> tmImage
+
+Bootstrap --> $
+
+popper --> $
+
+mushrooms --> HTMLDocument
+
+index --> HTMLDocument
+
+@enduml
